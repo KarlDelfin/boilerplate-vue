@@ -74,13 +74,15 @@ em, i { font-style: italic; }
     .main_info p span {display: block; margin: 200px 0 0 400px; color: var(--priColor); font-weight: 700;}
 
     .main_image {max-width: 600px; width: 100%; }
-    .main_image figure img {object-fit: cover; min-height: 800px; width: 100%; filter: blur(10px); object-position: 0 0;}
+    .main_image figure img {object-fit: cover; height: 700px; width: 100%; filter: blur(10px); object-position: 0 0;}
     
 #middle {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}
-    .middle_con {padding: 200px 0 0 0;}
+    .middle_con {padding: 200px 0; display: flex; justify-content: space-evenly;}
 
-    .middle_info {text-align: center;}
-    .middle_info h2 {font-size: 370px; font-weight: 600; filter: blur(10px);}
+    .middle_info {display: flex; gap: 20px;}
+    .middle_info h2 {font-size: 54px; font-weight: 600; }
+
+    .middle_technology {display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 25px;}
 
 #bottom {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}
 

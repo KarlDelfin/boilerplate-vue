@@ -1,6 +1,4 @@
 <template>
-
-  
   <!-- HEADER -->
   <div id="header">
     <div class="wrapper">
@@ -75,8 +73,18 @@
   <div id="middle">
     <div class="middle_con">
       <div class="middle_info">
-        <h2>Lorem Ipsum</h2>
+        <figure><img src="../assets/images/pin-wheel.webp" alt="pin wheel"></figure>
+        <h2>Technology Stack</h2>
+      </div> 
+      <div class="middle_technology">
+        <figure><img src="../assets/images/html.webp" alt="HTML"></figure>
+        <figure><img src="../assets/images/css.webp" alt="CSS"></figure>
+        <figure><img src="../assets/images/javascript.webp" alt="JavaScript"></figure>
+        <figure><img src="../assets/images/c-sharp.webp" alt="CSharp"></figure>
+        <figure><img src="../assets/images/vue.webp" alt="Vue"></figure>
+        <figure><img src="../assets/images/gsap.webp" alt="GSAP"></figure>
       </div>
+      
     </div>
   </div>
 

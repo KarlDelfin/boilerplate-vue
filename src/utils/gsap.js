@@ -111,7 +111,6 @@ export function gsapController() {
 
     mainTl.to('.main_image figure img', {
       filter: 'blur(0px)',
-      objectPosition: '0% 80%',
     })
 
     mainTl.from([mainConTexts.lines], {
@@ -121,12 +120,21 @@ export function gsapController() {
       stagger: 0.2
     })
 
+    gsap.to('.main_image figure img', {
+      objectPosition: '0% 50%',
+      scrollTrigger: {
+        trigger: '.main_image figure img',
+        scrub: true,
+        start: 'top center',
+        end: 'bottom center',
+      }
+    })
+
     let mainInfoH2SpanTl = gsap.timeline({
        scrollTrigger: {
         trigger: '.main_info',
         start: 'top 30%',
         end: 'bottom bottom',
-        markers: true
       }
     })
     mainInfoH2SpanTl.to('.location', {
@@ -137,24 +145,37 @@ export function gsapController() {
       rotate: -2,
       clipPath: 'inset(0% 0% 0% 0%)'
     })
-
-    // mainTl.to('.main_info h2 div', {
-    //   backgroundPositionX: '0%',
-    //   stagger: {
-    //     each: 0.2
-    //   }
-    // })
     
     /* MIDDLE */
-    let middleConTl = gsap.timeline({ })
-  
-    middleConTl.to('.middle_info h2', {
-      filter: 'blur(0px)',
-      scale: 0.2,
+    gsap.to('.middle_info figure img', {
+      rotate: 360,
       scrollTrigger: {
-        trigger: '.middle_con',
+        trigger: '.middle_info',
         scrub: true,
-        start: 'top 90%',
+      }
+    })
+
+    gsap.to('.middle_info h2', {
+      scrollTrigger: {
+        trigger: '.middle_info',
+        scrub: true,
+        start: 'top center',
+        end: 'bottom center',
+        pin: true,
+      }
+    })
+
+    gsap.from('.middle_technology figure img', {
+      x: 100,
+      opacity: 0,
+      filter: 'blur(10px)',
+      stagger: {
+        each: 0.2
+      },
+      scrollTrigger: {
+        trigger: '.middle_technology',
+        scrub: true,
+        start: 'top 70%',
         end: 'bottom center',
       }
     })
