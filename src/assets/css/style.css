@@ -10,11 +10,11 @@
 }
 
 *, *:before, *:after { box-sizing: border-box; -moz-box-sizing: border-box; image-rendering: -webkit-optimize-contrast; }
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; -webkit-text-size-adjust: 100%; line-height: 150%;}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; -webkit-text-size-adjust: 125%; line-height: 100%;}
 
 /* HTML5 display-role reset for older browsers */
-html{overflow-x: hidden;}
-body { line-height: 100%; font-family: var(--priFont); font-size: var(--defaultFont); overflow-x: hidden; background: var(--thiColor); color: var(--secColor);}
+html {}
+body {font-family: var(--priFont); font-size: var(--defaultFont); overflow-x: hidden; background: var(--thiColor); color: var(--secColor);}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 ul { list-style: none; }
 blockquote, q { quotes: none; }
@@ -37,32 +37,46 @@ em, i { font-style: italic; }
 .wrapper{max-width: 1800px; margin: 0 auto;}
 .line {overflow: hidden;}
 
+
 #header {position: fixed; top: 0; left: 0; width: 100%;}
     .header_con {display: flex; justify-content: start; padding: 25px 0;}
     .header_con p {font-size: 14px;}
     .header_con p mark {font-family: var(--secFont); font-style: italic;}
     .header_con p span{display: block;}
 
-#nav {position: fixed; bottom: 0; width: 100%;}
+#nav {position: fixed; bottom: 0; width: 100%; z-index: 1;}
     .nav_con {display: flex; justify-content: space-between; padding: 25px 0; border-top: 1px solid #8a8989;}
     .nav_con .social_media {display: flex; gap: 25px;}
 
-#hero {min-height: 100vh; position: relative;}
-    .hero_con {display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 385px 0 0 0}
+#loader {position: relative; z-index: 2;}
+    .loader_con {}
+    .loader_con img {}
+
+    .loader_scene_con {position: fixed; top: 0; left: 0; right: 0; z-index: -1;}
+    .loader_scene_con img {object-fit: cover;}
+
+#hero {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}
+#hero:before {content: ''; position: absolute; background: linear-gradient(0deg,rgb(15, 23, 32) 0%, rgba(15, 23, 32, 0) 100%); height: 200px; width: 100%; top: -200px;}
+    .hero_con {display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 385px 0 0 0; width: 100vw;}
     .hero_con video {width: 0vw; position: fixed;}
     .hero_con h1 {font-size: 300px; font-family: var(--secFont); font-weight: 600; display: flex; gap: 100px;}
     .hero_con h1 span {display: inline-block; }
     .hero_con p {position: absolute; text-shadow: 1px 1px 10px var(--thiColor); font-size: 32px; font-style: italic; font-family: var(--secFont);}
 
 
-#main {min-height: 100vh; position: relative; margin: 1000px 0 0 0;}
-#main::before { content: ''; position: absolute; background: linear-gradient(0deg,rgb(15, 23, 32) 0%, rgba(15, 23, 32, 0) 100%); height: 500px; width: 100%; top: -245px; }
-    .main_con {min-height: 100vh; display: flex; justify-content: left; padding: 400px 0 0 0;}
-    .main_con .main_info h2 {font-size: 54px; max-width: 1010px; width: 100%;}
-    .main_con .main_info p {font-size: 32px; margin: 100px 0 0 200px; max-width: 700px; width: 100%;}
-    .main_con .main_info p span {display: block; margin: 200px 0 0 400px; color: var(--priColor);}
-#middle {min-height: 100vh; position: relative;}
+#main {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}
+#main::before { content: ''; position: absolute; background: linear-gradient(0deg,rgb(15, 23, 32) 0%, rgba(15, 23, 32, 0) 100%); height: 200px; width: 100%; top: -200px; }
+    .main_con {min-height: 100vh; display: flex; justify-content: space-evenly; padding: 200px 0 0 0; gap: 50px;}
+    
+    .main_info h2 {font-size: 54px; max-width: 1010px; width: 100%;}
+    .main_info p {font-size: 32px; margin: 100px 0 0 200px; max-width: 700px; width: 100%;}
+    .main_info p span {display: block; margin: 200px 0 0 400px; color: var(--priColor);}
 
-#bottom {min-height: 100vh; position: relative;}
+    .main_image {max-width: 600px; width: 100%;}
+    .main_image img {object-fit: cover; min-height: 800px; width: 100%;}
+    
+#middle {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}
 
-#footer {min-height: 100vh; position: relative;}
+#bottom {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}
+
+#footer {min-height: 100vh; position: relative; background: var(--thiColor); z-index: 9;}

@@ -11,68 +11,109 @@ export function gsapController() {
   })
   gsap.ticker.lagSmoothing(0)
 
-  /* HERO */
-  let heroConVideoTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '#hero',
-      scrub: true,
-      start: 'top -20%',
-      end: '+=1000',
-      pin: true,
-      pinSpacing: false,
-      markers: true,
-    },
-  })
+  window.addEventListener('load', () => {
+    /* LOADER */
+    gsap.to('.loader_con img', {
+      scale: 5,
+      scrollTrigger: {
+        trigger: '.loader_con',
+        scrub: 3,
+        start: 'top -15%',
+        pin: true,
+        pinSpacing: false,
+        onEnterBack: function() {
+          document.querySelector('.loader_con img').style.display = 'block'
+        },
+        onLeave: function() {
+          document.querySelector('.loader_con img').style.display = 'none'
+        }
+      }
+    })
 
-  heroConVideoTl.to('.hero_con video', {
-    width: '100vw',
-  })
+    gsap.to('.loader_scene_con img', {
+      y: -100,
+      scrollTrigger: {
+        trigger: '.loader_scene_con img',
+        start: 'top top',
+        scrub: 3,
+        pin: true,
+        pinSpacing: false
+      }
+    })
 
-  let heroConH1Span = document.querySelectorAll('.hero_con h1 span');
-  heroConH1Span.forEach((span, i) => {
-    heroConVideoTl.to(span, {
-      x: i % 2 === 0 ? '-250%' : '250%',
-    }, 0);
-  });
+    /* HERO */
+    let heroConVideoTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.hero_con',
+        scrub: true,
+        start: 'top -20%',
+        end: '+=1000',
+        pin: true,
+      },
+    })
 
-  let heroConPTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.hero_con p',
-      scrub: true,
-      start: 'top 10%',
-      end: 'bottom -40%',
-    },
-  })
-  
-  let heroConP = new SplitText('.hero_con p', { type: 'lines, chars', linesClass: 'line' })
-  heroConPTl.from(heroConP.chars, {
-    filter: 'blur(10px)',
-    y: 100,
-    opacity: 0,
-    stagger: 0.2,
-  })
+    heroConVideoTl.to('.hero_con video', {
+      width: '100vw',
+    }, 0)
 
-  heroConPTl.to(['#header', '#nav'], {
-    opacity: 0,
-  }, 0)
+    let heroConH1Span = document.querySelectorAll('.hero_con h1 span');
+    heroConH1Span.forEach((span, i) => {
 
-  /* MAIN */
-  let mainConTexts = new SplitText(['.main_con .main_info h2', '.main_con .main_info p', '.main_con .main_info span'], {type: 'lines, lines', linesClass: 'line'})
-  let mainTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: '.main_con',
-      scrub: true,
-      start: 'top center',
-      end: 'bottom center',
-      markers: true
-    }
-  })
 
-  mainTl.from([mainConTexts.lines], {
-    filter: 'blur(10px)',
-    opacity: 0,
-    y: 50,
-    stagger: 0.2
-  })
+      heroConVideoTl.to(span, {
+        x: i % 2 === 0 ? '-250%' : '250%',
+      }, 0);
+    });
+
+    let heroConPTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.hero_con p',
+        scrub: true,
+        start: 'top 10%',
+        end: 'bottom -40%',
+      },
+    })
+    
+    let heroConP = new SplitText('.hero_con p', { type: 'lines, chars', linesClass: 'line' })
+    heroConPTl.from(heroConP.chars, {
+      filter: 'blur(10px)',
+      y: 100,
+      opacity: 0,
+      stagger: 0.2,
+    })
+
+    heroConPTl.to(['#header', '#nav'], {
+      opacity: 0,
+    }, 0)
+
+    let heroConH1SpanST = new SplitText(['.hero_con h1 span:first-child', '.hero_con h1 span:last-child'], {type: 'words'})
+    gsap.from(heroConH1SpanST.words, {
+      y: -100,
+      opacity: 0,
+    }, 0)
+
+    /* MAIN */
+    let mainConTexts = new SplitText(['.main_info h2', '.main_info p', '.main_con .main_info span'], {type: 'lines'})
+    let mainTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.main_con',
+        scrub: true,
+        start: 'top center',
+        end: 'bottom bottom',
+        markers: true
+      }
+    })
+
+    mainTl.from([mainConTexts.lines], {
+      filter: 'blur(10px)',
+      opacity: 0,
+      y: 50,
+      stagger: 0.2
+    })
+
+    mainTl.to('.main_image figure img', {
+      objectPosition: '0% 80%',
+    })
+})
 
 }

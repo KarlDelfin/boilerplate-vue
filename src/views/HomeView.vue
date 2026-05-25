@@ -1,4 +1,6 @@
 <template>
+
+  
   <!-- HEADER -->
   <div id="header">
     <div class="wrapper">
@@ -27,6 +29,17 @@
       </div>
     </div>
   </div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader_con">
+        <img src="../assets/images/person-in-window.png" alt="person in window">
+    </div>
+    <div class="loader_scene_con">
+      <img src="../assets/images/mountain.jpg" alt="mountain">
+    </div>
+  </div>
+
   <!-- HERO -->
   <div id="hero">
     <div class="hero_con">
@@ -38,6 +51,8 @@
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
     </div>
   </div>
+
+  <!-- MAIN -->
   <div id="main">
     <div class="wrapper">
       <div class="main_con">
@@ -51,14 +66,20 @@
             <span>🡺V3.0</span>
           </p>
         </div>
-        <div class="main_img">
-          <figure><img src="" alt="" /></figure>
+        <div class="main_image">
+          <figure><img src="../assets/images/river.jpg" alt="river" /></figure>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- MIDDLE -->
   <div id="middle"></div>
+
+  <!-- BOTTOM -->
   <div id="bottom"></div>
+
+  <!-- FOOTER -->
   <div id="footer"></div>
 </template>
 
