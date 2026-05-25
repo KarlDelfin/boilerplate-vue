@@ -82,9 +82,15 @@ export function gsapController() {
       stagger: 0.2,
     })
 
-    heroConPTl.to(['#header', '#nav'], {
+    gsap.to(['#header', '#nav'], {
       opacity: 0,
-    }, 0)
+      scrollTrigger: {
+        trigger: '#loader',
+        scrub: true,
+        start: 'top top',
+        end: 'bottom center',
+      },
+    })
 
     let heroConH1SpanST = new SplitText(['.hero_con h1 span:first-child', '.hero_con h1 span:last-child'], {type: 'words'})
     gsap.from(heroConH1SpanST.words, {
@@ -93,15 +99,19 @@ export function gsapController() {
     }, 0)
 
     /* MAIN */
-    let mainConTexts = new SplitText(['.main_info h2', '.main_info p', '.main_con .main_info span'], {type: 'lines'})
+    let mainConTexts = new SplitText(['.main_info h2', '.main_info p'], {type: 'lines'})
     let mainTl = gsap.timeline({
       scrollTrigger: {
         trigger: '.main_con',
         scrub: true,
         start: 'top center',
         end: 'bottom bottom',
-        markers: true
       }
+    })
+
+    mainTl.to('.main_image figure img', {
+      filter: 'blur(0px)',
+      objectPosition: '0% 80%',
     })
 
     mainTl.from([mainConTexts.lines], {
@@ -111,9 +121,42 @@ export function gsapController() {
       stagger: 0.2
     })
 
-    mainTl.to('.main_image figure img', {
-      objectPosition: '0% 80%',
+    let mainInfoH2SpanTl = gsap.timeline({
+       scrollTrigger: {
+        trigger: '.main_info',
+        start: 'top 30%',
+        end: 'bottom bottom',
+        markers: true
+      }
     })
-})
+    mainInfoH2SpanTl.to('.location', {
+      rotate: 3,
+      clipPath: 'inset(0% 0% 0% 0%)'
+    })
+    mainInfoH2SpanTl.to('.position', {
+      rotate: -2,
+      clipPath: 'inset(0% 0% 0% 0%)'
+    })
 
+    // mainTl.to('.main_info h2 div', {
+    //   backgroundPositionX: '0%',
+    //   stagger: {
+    //     each: 0.2
+    //   }
+    // })
+    
+    /* MIDDLE */
+    let middleConTl = gsap.timeline({ })
+  
+    middleConTl.to('.middle_info h2', {
+      filter: 'blur(0px)',
+      scale: 0.2,
+      scrollTrigger: {
+        trigger: '.middle_con',
+        scrub: true,
+        start: 'top 90%',
+        end: 'bottom center',
+      }
+    })
+  })
 }

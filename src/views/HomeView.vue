@@ -17,7 +17,7 @@
   <div id="nav">
     <div class="wrapper">
       <div class="nav_con">
-        <div class="version">🡺V3.0</div>
+        <div class="version">🡺V2.0</div>
         <div class="social_media">
           <a href="https://m.me/dkhrl" target="_blank">Facebook</a>
           <a href="mailto:dkhrl2000@gmail.com" target="_blank">Google</a>
@@ -57,13 +57,11 @@
     <div class="wrapper">
       <div class="main_con">
         <div class="main_info">
-          <h2>
-            Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur
-            adipiscing elit quisque faucibus.
-          </h2>
+          <h2>I specialize in creating <mark>user-friendly interfaces</mark> based in <span class="location">Cebu, Philippines</span></h2>
+          <h2>I am committed to continuously learning new technologies to advance my growth as a <span class="position">Web Developer</span></h2>
           <p>
-            My name is Karl. A passionate web developer, I build memorable digital experiences.
-            <span>🡺V3.0</span>
+            My name is Karl. A <mark>passionate web developer</mark>, I build memorable digital experiences.
+            <span>🡺V2.0</span>
           </p>
         </div>
         <div class="main_image">
@@ -74,7 +72,13 @@
   </div>
 
   <!-- MIDDLE -->
-  <div id="middle"></div>
+  <div id="middle">
+    <div class="middle_con">
+      <div class="middle_info">
+        <h2>Lorem Ipsum</h2>
+      </div>
+    </div>
+  </div>
 
   <!-- BOTTOM -->
   <div id="bottom"></div>
