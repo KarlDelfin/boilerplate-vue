@@ -1,7 +1,8 @@
-import { gsap, ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin } from 'gsap/all'
+import { gsap, ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, MotionPathPlugin } from 'gsap/all'
 import Lenis from 'lenis'
+import { horizontalLoop } from './horizontalLoop'
 
-gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin)
+gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, MotionPathPlugin)
 
 export function gsapController() {
   /* LENIS SCROLL */
@@ -109,9 +110,6 @@ export function gsapController() {
       }
     })
 
-    mainTl.to('.main_image figure img', {
-      filter: 'blur(0px)',
-    })
 
     mainTl.from([mainConTexts.lines], {
       filter: 'blur(10px)',
@@ -121,12 +119,13 @@ export function gsapController() {
     })
 
     gsap.to('.main_image figure img', {
+      filter: 'blur(0px)',
       objectPosition: '0% 50%',
       scrollTrigger: {
         trigger: '.main_image figure img',
         scrub: true,
         start: 'top center',
-        end: 'bottom center',
+        end: 'bottom 80%',
       }
     })
 
@@ -148,10 +147,11 @@ export function gsapController() {
     
     /* MIDDLE */
     gsap.to('.middle_info figure img', {
-      rotate: 360,
+      rotate: 900,
       scrollTrigger: {
         trigger: '.middle_info',
         scrub: true,
+        end: '+=3000'
       }
     })
 
@@ -179,5 +179,201 @@ export function gsapController() {
         end: 'bottom center',
       }
     })
+
+    /* BOTTOM */
+    let bottomConTl = gsap.timeline({
+       scrollTrigger: {
+          trigger: '.bottom_con',
+          scrub: true,
+          start: 'top bottom',
+          end: 'bottom bottom',
+        }
+      }
+    )
+
+    bottomConTl.from('.bottom_con ul li p', {
+      filter: 'blur(10px)',
+      opacity: 0,
+      y: 50,
+      stagger: 0.2
+    })
+
+    /* SHOWCASE */
+    gsap.set(".bottom_con ul li img", { yPercent: -50, xPercent: -50 });
+
+    let firstEnter;
+    gsap.utils.toArray(".bottom_con ul li").forEach((el) => {
+      const image = el.querySelector(".bottom_con ul li img"),
+        setX = gsap.quickTo(image, "x", { duration: 0.4, ease: "power3" }),
+        setY = gsap.quickTo(image, "y", { duration: 0.4, ease: "power3" }),
+        align = (e) => {
+          if (firstEnter) {
+            setX(e.clientX, e.clientX);
+            setY(e.clientY, e.clientY);
+            firstEnter = false;
+          } else {
+            setX(e.clientX);
+            setY(e.clientY);
+          }
+        },
+        
+        startFollow = () => document.addEventListener("mousemove", align),
+        stopFollow = () => document.removeEventListener("mousemove", align),
+        fade = gsap.to(image, {
+          autoAlpha: 1,
+          ease: "none",
+          paused: true,
+          duration: 0.1,
+          onReverseComplete: stopFollow
+        });
+
+      el.addEventListener("mouseenter", (e) => {
+        firstEnter = true;
+        fade.play();
+        startFollow();
+        align(e);
+      });
+
+      el.addEventListener("mouseleave", () => fade.reverse());
+    });
+
+    /* MAINTAINED WEBSITES */
+    const maintainedWesitesMarquee = horizontalLoop(
+      document.querySelectorAll(".maintained_websites_con .bottom_info div h2"),
+      {
+        repeat: -1,
+        paddingRight: 30,
+        speed: 1,
+        draggable: true,
+      }
+    );
+
+    maintainedWesitesMarquee.timeScale(1);
+
+    document.querySelectorAll(".bottom_con .bottom_info div h2").forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        gsap.to(maintainedWesitesMarquee, { timeScale: 0.5, duration: 0.2 });
+      });
+
+      item.addEventListener("mouseleave", () => {
+        gsap.to(maintainedWesitesMarquee, { timeScale: 1, duration: 0.2 });
+      });
+    });
+
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "bottom bottom",
+
+      onUpdate: (self) => {
+        let dir = self.direction;
+
+        gsap.to(maintainedWesitesMarquee, {
+          timeScale: dir * 2,
+          duration: 0.3
+        });
+      }
+    });
+
+    /* PERSONAL PROECTS */
+    const personalProjectsMarquee = horizontalLoop(
+      document.querySelectorAll(".personal_projects_con .bottom_info div h2"),
+      {
+        repeat: -1,
+        paddingRight: 30,
+        speed: 1,
+        draggable: true,
+      }
+    );
+
+    personalProjectsMarquee.progress(1).timeScale(-1);
+
+    document.querySelectorAll(".personal_projects_con .bottom_info div h2").forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+          gsap.to(personalProjectsMarquee, {
+            timeScale: -0.5,
+            duration: 0.2
+          });
+        });
+
+        item.addEventListener("mouseleave", () => {
+          gsap.to(personalProjectsMarquee, {
+            timeScale: -1,
+            duration: 0.2
+          });
+        });
+    });
+
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "bottom bottom",
+
+      onUpdate: (self) => {
+        let dir = self.direction;
+        gsap.to(personalProjectsMarquee, {
+          timeScale: dir * -2,
+          duration: 0.3
+        });
+      }
+    });
+
+    /* FOOTER */
+    gsap.to(".timeline_info h2", {
+      duration: 2,
+      scrambleText: {
+        text: "Let's take it back.",
+        chars: "lowerCase",
+      },
+      scrollTrigger: {
+        trigger: '.timeline_info h2',
+        start: 'top 90%',
+      }
+    })
+
+    const pulses = gsap.timeline({
+      defaults: {
+        scale: 2,
+        autoAlpha:1,
+        transformOrigin: 'center', 
+        ease: "elastic(1.5, 1)"
+      }})
+      .to(".ball02, .text01, .text_2022", {}, 0.84) 
+      .to(".ball03, .text02, .text_2024", {}, 1.36)
+      .to(".ball04, .text03, .text_2025", {}, 1.92)
+
+      const main = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#svg",
+          scrub: true,
+          start: "top center",
+        }
+      })
+      .to(".ball01", {autoAlpha:1, duration:0.05})
+      .from(".theLine", {drawSVG:0, duration:4}, 0)
+      .to(".ball01", {motionPath:{
+        path:".theLine",
+        align:".theLine",
+        alignOrigin:[0.5, 0.5],
+      }, duration:4}, 0)
+      .add(pulses, 0)
+
+      /* CONTACT */
+      let contactBgTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".contact_bg",
+          scrub: true,
+          start: "top bottom",
+          end: 'bottom center',
+        }
+      })
+
+      contactBgTl.to('.contact_bg', {
+        scale: 25,
+      })
+
+      contactBgTl.from('.contact_info h2', {
+        x: 1500,
+      }, 0)
   })
 }

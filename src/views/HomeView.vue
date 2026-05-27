@@ -71,39 +71,190 @@
 
   <!-- MIDDLE -->
   <div id="middle">
-    <div class="middle_con">
-      <div class="middle_info">
-        <figure><img src="../assets/images/pin-wheel.webp" alt="pin wheel"></figure>
-        <h2>Technology Stack</h2>
-      </div> 
-      <div class="middle_technology">
-        <figure><img src="../assets/images/html.webp" alt="HTML"></figure>
-        <figure><img src="../assets/images/css.webp" alt="CSS"></figure>
-        <figure><img src="../assets/images/javascript.webp" alt="JavaScript"></figure>
-        <figure><img src="../assets/images/c-sharp.webp" alt="CSharp"></figure>
-        <figure><img src="../assets/images/vue.webp" alt="Vue"></figure>
-        <figure><img src="../assets/images/gsap.webp" alt="GSAP"></figure>
+    <div class="wrapper">
+      <div class="middle_con">
+        <div class="middle_info">
+          <figure><img src="../assets/images/pin-wheel.webp" alt="pin wheel"></figure>
+          <h2>Technology <mark>Stack</mark></h2>
+        </div> 
+        <div class="middle_technology">
+          <figure><img src="../assets/images/html.webp" alt="HTML"></figure>
+          <figure><img src="../assets/images/css.webp" alt="CSS"></figure>
+          <figure><img src="../assets/images/javascript.webp" alt="JavaScript"></figure>
+          <figure><img src="../assets/images/c-sharp.webp" alt="CSharp"></figure>
+          <figure><img src="../assets/images/vue.webp" alt="Vue"></figure>
+          <figure><img src="../assets/images/gsap.webp" alt="GSAP"></figure>
+        </div>
       </div>
-      
     </div>
   </div>
 
   <!-- BOTTOM -->
-  <div id="bottom"></div>
+  <div id="bottom">
+    <div class="bottom_con">
+      <div class="maintained_websites_con">
+        <div class="bottom_info">
+          <div>
+            <h2>Maintained</h2>
+            <h2>Websites •</h2>
+            <h2>Maintained</h2>
+            <h2>Websites •</h2>
+            <h2>Maintained</h2>
+            <h2>Websites •</h2>
+          </div>
+        </div>
+        <ul>
+          <li>
+              <img src="../assets/images/mom-your-business.webp" alt="Mom Your Business">
+              <a href="https://www.momyourbusiness.com/" target="_blank">
+                  <p>Mom Your Business</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/betterlives.webp" alt="BETTERLIVES LLC">
+              <a href="https://www.betterlivestn.com/" target="_blank">
+                  <p>BETTERLIVES LLC</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/emeritus.webp" alt="Emeritus Home Care">
+              <a href="https://www.emeritushomecare.com/" target="_blank">
+                  <p>Emeritus Home Care</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/shalom.webp" alt="Shalom Home Health Care, Inc.">
+              <a href="https://www.shalomhhc.com/" target="_blank">
+                  <p>Shalom Home Health Care, Inc.</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/oforis.webp" alt="Oforis Trucking">
+              <a href="https://www.oforistrucking.com/" target="_blank">
+                  <p>Oforis Trucking</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/a-place-for-rodney.webp" alt="A Play for Rodney">
+              <a href="https://www.aplaceforrodneylivingsolutions.com/" target="_blank">
+                  <p>A Play for Rodney</p>
+              </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="personal_projects_con">
+        <div class="bottom_info">
+          <div>
+            <h2>Personal</h2>
+            <h2>Projects •</h2>
+            <h2>Personal</h2>
+            <h2>Projects •</h2>
+            <h2>Personal</h2>
+            <h2>Projects •</h2>
+          </div>
+        </div>
+        <ul>
+          <li>
+              <img src="../assets/images/portfolio-v1.webp" alt="Portfolio v1">
+              <a href="https://karldelfin.github.io/" target="_blank">
+                  <p>Portfolio v1</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/portfolio1.webp" alt="Portfolio 1">
+              <a href="https://karldelfin.github.io/portfolio1/" target="_blank">
+                  <p>Portfolio 1</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/portfolio2.webp" alt="Portfolio 2">
+              <a href="https://karldelfin.github.io/portfolio2/" target="_blank">
+                  <p>Portfolio 2</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/movies.webp" alt="Movie Trailers">
+              <a href="https://karldelfin.github.io/movies/" target="_blank">
+                  <p>Movie Trailers</p>
+              </a>
+          </li>
+          <li>
+              <img src="../assets/images/image-to-text.webp" alt="Image to Text">
+              <a href="https://www.shalomhhc.com/" target="_blank">
+                  <p>Image to Text</p>
+              </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <!-- FOOTER -->
-  <div id="footer"></div>
+  <div id="footer">
+    <div class="timeline">
+      <div class="timeline_info">
+        <h2>Let's take it back.</h2>
+      </div>
+      <div class="timeline_con">
+        <svg id="svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 600 1200">
+          <path class="line01 line" d="M 10 200  600 200" ></path>
+          <path class="line02 line" d="M 10 400  600 400" ></path>
+          <path class="line03 line" d="M 10 600  600 600" ></path>
+          <text class="text01" x="30" y="190">2022</text>
+          <text class="text02" x="30" y="590">2024</text>
+          <text class="text03" x="30" y="990">2025</text>
+
+          <path class="theLine" 
+                d="M -5 0 Q 450 230 300 450 T 130 750 Q 100 850 300 1000 T -49 1198"
+                fill="none" stroke="white" stroke-width="20px" />
+
+          <circle class="ball ball01" r="20" cx="50" cy="100"></circle>
+          <circle class="ball ball02" r="20" cx="278" cy="201"></circle>
+          <circle class="ball ball03" r="20" cx="203" cy="601"></circle>
+          <circle class="ball ball04" r="20" cx="296" cy="1001"></circle>
+        </svg>
+
+        <div class="timeline_info">
+          <div class="text_2022">
+            <p>Started working part-time as a <mark>Truck Helper</mark> during the<br/>pandemic while continuing my studies at <mark>University of Cebu</mark>.</p>
+          </div>
+          <div class="text_2024">
+            <p>Received my <mark>Alliance Jumpstart Program</mark><br/>and <mark>Skanlog ELEV8 Internship</mark> certificates.</p>
+          </div>
+          <div class="text_2025">
+            <p>Graduated from <mark>University of Cebu - Main Campus.</mark></p>
+            <p>Started my journey as a <mark>Web Developer</mark><br/>at a company based in Talisay, Cebu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact_con">
+      <div class="contact_bg"></div>
+      <div class="contact_info">
+        <h2>Contact</h2>
+      </div>
+      <div class="copyright">Copyright © Karl John T. Delfin, {{ year }}</div>
+    </div>
+  </div>
 </template>
 
 <script>
 import { gsapController } from '@/utils/gsap'
 export default {
   data() {
-    return {}
+    return {
+      year: 0
+    }
   },
-  methods: {},
+  methods: {
+    getYear(){
+      this.year = new Date().getFullYear()
+    }
+  },
   mounted() {
     gsapController()
+    this.getYear()
   },
 }
 </script>
