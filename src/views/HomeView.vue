@@ -92,6 +92,19 @@
   <!-- BOTTOM -->
   <div id="bottom">
     <div class="bottom_con">
+      <div class="bottom_bg">
+        <svg id="bottom_svg" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 600 1200">
+          <path class="line01 line" d="M 10 200  600 200" ></path>
+          <path class="line02 line" d="M 10 400  600 400" ></path>
+          <path class="line03 line" d="M 10 600  600 600" ></path>
+
+          <path class="theLine" 
+                d="M -5 0 Q 437 -2 483 248 T 252 510 Q 57 503 -1 344"
+                fill="none" stroke="white" stroke-width="20px" />
+
+          <circle class="ball ball01" r="20" cx="50" cy="100" fill="#fff"></circle>
+        </svg>
+      </div>
       <div class="maintained_websites_con">
         <div class="bottom_info">
           <div>

@@ -198,6 +198,33 @@ export function gsapController() {
       stagger: 0.2
     })
 
+    const bottomPulse = gsap.timeline({
+      defaults: {
+        scale: 2,
+        autoAlpha:1,
+        transformOrigin: 'center', 
+        ease: "elastic(1.5, 1)"
+      }})
+      .to(".bottom_bg .ball02", {}, 0.84) 
+      .to(".bottom_bg .ball03", {}, 1.36)
+      .to(".bottom_bg .ball04", {}, 1.92)
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: "#bottom_svg",
+          scrub: true,
+          start: "top bottom",
+        }
+      })
+      .to(".bottom_bg .ball01", {autoAlpha:1, duration:0.05})
+      .from(".bottom_bg .theLine", {drawSVG:0, duration:4}, 0)
+      .to(".bottom_bg .ball01", {motionPath:{
+        path:".bottom_bg .theLine",
+        align:".bottom_bg .theLine",
+        alignOrigin:[0.5, 0.5],
+      }, duration:4}, 0)
+      .add(bottomPulse, 0)
+
     /* SHOWCASE */
     gsap.set(".bottom_con ul li img", { yPercent: -50, xPercent: -50 });
 
@@ -338,9 +365,9 @@ export function gsapController() {
         transformOrigin: 'center', 
         ease: "elastic(1.5, 1)"
       }})
-      .to(".ball02, .text01, .text_2022", {}, 0.84) 
-      .to(".ball03, .text02, .text_2024", {}, 1.36)
-      .to(".ball04, .text03, .text_2025", {}, 1.92)
+      .to(".timeline_con .ball02, .text01, .text_2022", {}, 0.84) 
+      .to(".timeline_con .ball03, .text02, .text_2024", {}, 1.36)
+      .to(".timeline_con .ball04, .text03, .text_2025", {}, 1.92)
 
       const main = gsap.timeline({
         scrollTrigger: {
@@ -349,11 +376,11 @@ export function gsapController() {
           start: "top center",
         }
       })
-      .to(".ball01", {autoAlpha:1, duration:0.05})
-      .from(".theLine", {drawSVG:0, duration:4}, 0)
-      .to(".ball01", {motionPath:{
-        path:".theLine",
-        align:".theLine",
+      .to(".timeline_con .ball01", {autoAlpha:1, duration:0.05})
+      .from(".timeline_con .theLine", {drawSVG:0, duration:4}, 0)
+      .to(".timeline_con .ball01", {motionPath:{
+        path:".timeline_con .theLine",
+        align:".timeline_con .theLine",
         alignOrigin:[0.5, 0.5],
       }, duration:4}, 0)
       .add(pulses, 0)
