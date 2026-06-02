@@ -118,8 +118,11 @@ em, i { font-style: italic; }
     .timeline_info .text_2024 {top: 594px; left: -160px;}
     .timeline_info .text_2025 {top: 1025px; left: -20px;}
 
-    .contact_con {min-height: 100vh; margin: 500px 0 0 0;}
+    .contact_con {min-height: 100vh; margin: 500px 0 0 0; /* background: var(--secColor) */}
 
-    .contact_info {text-align: center; position: relative;}
-    .contact_info h2 {font-size: 100px; font-weight: 700; color: var(--thiColor);}
+    .contact_info {text-align: center; position: relative; display: flex; justify-content: space-between}
+    .contact_info h2 {font-size: 100px; font-weight: 700; color: var(--thiColor);text-align: center; width: 100%;}
     .contact_bg {width: 100px; height: 100px; transform: scale(0); background: var(--secColor); margin: 0 auto; border-radius: 50%;}
+
+    .copyright {position: relative; text-align: center; margin: 35px 0;}
+    .copyright p {color: var(--thiColor); font-size: 14px;}

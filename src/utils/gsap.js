@@ -347,7 +347,7 @@ export function gsapController() {
 
     /* FOOTER */
     gsap.to(".timeline_info h2", {
-      duration: 2,
+      duration: 1,
       scrambleText: {
         text: "Let's take it back.",
         chars: "lowerCase",
@@ -386,21 +386,25 @@ export function gsapController() {
       .add(pulses, 0)
 
       /* CONTACT */
-      let contactBgTl = gsap.timeline({
+      gsap.to('.contact_bg', {
+        scale: 30,
+        scrollTrigger: {
+          trigger: ".contact_bg",
+          scrub: true,
+          start: "top 150%",
+          pinSpacing: false,
+        }
+      })
+
+      gsap.from('.contact_info h2', {
+        x: 1500,
         scrollTrigger: {
           trigger: ".contact_bg",
           scrub: true,
           start: "top bottom",
           end: 'bottom center',
+          markers: true,
         }
       })
-
-      contactBgTl.to('.contact_bg', {
-        scale: 25,
-      })
-
-      contactBgTl.from('.contact_info h2', {
-        x: 1500,
-      }, 0)
   })
 }

@@ -247,7 +247,9 @@
       <div class="contact_info">
         <h2>Contact</h2>
       </div>
-      <div class="copyright">Copyright © Karl John T. Delfin, {{ year }}</div>
+    </div>
+    <div class="copyright">
+      <p>Copyright © Karl John T. Delfin, {{ year }}</p>
     </div>
   </div>
 </template>
