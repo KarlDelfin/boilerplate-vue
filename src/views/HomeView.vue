@@ -19,11 +19,11 @@
         <div class="social_media">
           <a href="https://m.me/dkhrl" target="_blank">Facebook</a>
           <a href="mailto:dkhrl2000@gmail.com" target="_blank">Google</a>
-          <a href="https://www.linkedin.com/in/karl-john-delfin-33b3b22a4/" target="_blank"
-            >LinkedIn</a
-          >
+          <a href="https://www.linkedin.com/in/karl-john-delfin-33b3b22a4/" target="_blank" >LinkedIn</a >
         </div>
-        <div></div>
+        <div class="copyright">
+          <p>Copyright © Karl John T. Delfin, {{ year }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -194,7 +194,7 @@
           </li>
           <li>
               <img src="../assets/images/image-to-text.webp" alt="Image to Text">
-              <a href="https://www.shalomhhc.com/" target="_blank">
+              <a href="https://karldelfin.github.io/image-to-text" target="_blank">
                   <p>Image to Text</p>
               </a>
           </li>
@@ -243,14 +243,13 @@
       </div>
     </div>
     <div class="contact_con">
-      <div class="contact_bg"></div>
       <div class="contact_info">
-        <h2>Contact</h2>
+        <div class="contact_bg"></div>
+        <h2>Karl John</h2>
+        <div> </div>
       </div>
     </div>
-    <div class="copyright">
-      <p>Copyright © Karl John T. Delfin, {{ year }}</p>
-    </div>
+    
   </div>
 </template>
 

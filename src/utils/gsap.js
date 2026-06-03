@@ -85,6 +85,7 @@ export function gsapController() {
 
     gsap.to(['#header', '#nav'], {
       opacity: 0,
+      zIndex: 1,
       scrollTrigger: {
         trigger: '#loader',
         scrub: true,
@@ -396,14 +397,33 @@ export function gsapController() {
         }
       })
 
-      gsap.from('.contact_info h2', {
-        x: 1500,
+      let contactInfoH2 = new SplitText('.contact_info h2', {type: 'chars'})
+      gsap.from(contactInfoH2.chars, {
+        y: 1000,
+        opacity: 0,
+        stagger: {
+          each: 0.2,
+          from: 'edges'
+        },
         scrollTrigger: {
           trigger: ".contact_bg",
           scrub: true,
-          start: "top bottom",
-          end: 'bottom center',
-          markers: true,
+          start: "top center",
+          end: 'bottom 10%',
+          onEnter: function() {
+            gsap.to(['#header', '#nav'], {
+              opacity: 1,
+              color: 'var(--thiColor)',
+              zIndex: '99'
+            })
+          },
+          onLeaveBack: function() {
+            gsap.to(['#header', '#nav'], {
+              opacity: 0,
+              color: 'var(--secColor)',
+              zIndex: '0'
+            })
+          }
         }
       })
   })
