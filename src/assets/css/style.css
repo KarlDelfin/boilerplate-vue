@@ -34,6 +34,7 @@ ul, h1, h2, h3, h4 { margin: 0; padding: 0; list-style: none; }
 strong, b { font-weight: 700; }
 em, i { font-style: italic; }
 
+#app {width: 100vw; overflow-x: hidden !important;}
 .wrapper{max-width: 1800px; margin: 0 auto;}
 .line {overflow: hidden;}
 
